@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="a3c.tekathon.memecreator.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/topQuote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Tap To Enter Line"
+            android:textAlignment="center"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/bottomQuote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Tap To Enter Line"
+            android:textAlignment="center"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:id="@+id/Space"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/cf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="chooseFile"
+        android:text="Choose File"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="save"
+            android:text="Save"
+            android:layout_gravity="bottom"/>
+
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Upload"
+            android:onClick="upload"
+            android:layout_gravity="bottom"/>
+    </LinearLayout>
+
+</RelativeLayout>
