@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             // Instead, a URI to that document will be contained in the return intent
             // provided to this method as a parameter.
             // Pull that URI using resultData.getData().
-            Uri imageUri = resultData.getData();
+            imageUri = resultData.getData();
 
             imageView.setImageURI(imageUri);
         }
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void save(View view){
         Bitmap original = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
-        System.out.println("didnt crash");
+    //    System.out.println("didn't crash");
         Bitmap original2 = original.copy(Bitmap.Config.ARGB_8888, true);
         Canvas canvas = new Canvas(original2);
         EditText topText = (EditText) findViewById(R.id.topQuote);
@@ -91,7 +91,9 @@ public class MainActivity extends AppCompatActivity {
         canvas.drawText(topText.getText().toString(), canvas.getWidth()-100, canvas.getHeight()-100, new Paint());
 
         view.draw(canvas);
-        File file = new File(Environment.DIRECTORY_DOCUMENTS + "/meme" + System.nanoTime() + ".jpg");
+        System.out.println(imageUri.getPath());
+        String directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/meme" + System.nanoTime() + ".jpg";
+        File file = new File(directory);
         System.out.println(file.getAbsolutePath());
         System.out.println(file.getParentFile().getAbsolutePath());
         System.out.println(file.getParentFile().list());
@@ -104,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("success");
             }
 
-            OutputStream save = new FileOutputStream(Environment.DIRECTORY_DOCUMENTS + "/meme" + System.nanoTime() + ".jpg");
+            OutputStream save = new FileOutputStream(directory);
             original2.compress(Bitmap.CompressFormat.JPEG, 100, save);
         }catch(Exception e){
             e.printStackTrace();
